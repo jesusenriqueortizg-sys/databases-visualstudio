@@ -47,13 +47,15 @@
             TxtCorreoActualizar = new TextBox();
             TxtTelefonoActualizar = new TextBox();
             TxtNombreActualizar = new TextBox();
-            TxtID = new TextBox();
+            TxtDireccionActualizar = new TextBox();
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
             label13 = new Label();
             BtnMostrar = new Button();
             dgvClientes = new DataGridView();
+            label2 = new Label();
+            TxtID = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
             // 
@@ -176,12 +178,13 @@
             // 
             // BtnActualizar
             // 
-            BtnActualizar.Location = new Point(965, 175);
+            BtnActualizar.Location = new Point(949, 209);
             BtnActualizar.Name = "BtnActualizar";
             BtnActualizar.Size = new Size(75, 23);
             BtnActualizar.TabIndex = 16;
             BtnActualizar.Text = "Actualizar";
             BtnActualizar.UseVisualStyleBackColor = true;
+            BtnActualizar.Click += BtnActualizar_Click;
             // 
             // label9
             // 
@@ -213,12 +216,12 @@
             TxtNombreActualizar.Size = new Size(126, 23);
             TxtNombreActualizar.TabIndex = 20;
             // 
-            // TxtID
+            // TxtDireccionActualizar
             // 
-            TxtID.Location = new Point(832, 51);
-            TxtID.Name = "TxtID";
-            TxtID.Size = new Size(126, 23);
-            TxtID.TabIndex = 21;
+            TxtDireccionActualizar.Location = new Point(832, 51);
+            TxtDireccionActualizar.Name = "TxtDireccionActualizar";
+            TxtDireccionActualizar.Size = new Size(126, 23);
+            TxtDireccionActualizar.TabIndex = 21;
             // 
             // label10
             // 
@@ -232,11 +235,11 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(884, 33);
+            label11.Location = new Point(849, 33);
             label11.Name = "label11";
-            label11.Size = new Size(18, 15);
+            label11.Size = new Size(94, 15);
             label11.TabIndex = 23;
-            label11.Text = "ID";
+            label11.Text = "Nueva Direccion";
             // 
             // label12
             // 
@@ -264,6 +267,7 @@
             BtnMostrar.TabIndex = 26;
             BtnMostrar.Text = "Mostrar";
             BtnMostrar.UseVisualStyleBackColor = true;
+            BtnMostrar.Click += BtnMostrar_Click;
             // 
             // dgvClientes
             // 
@@ -273,19 +277,39 @@
             dgvClientes.Size = new Size(1280, 211);
             dgvClientes.TabIndex = 27;
             dgvClientes.CellContentClick += dgvClientes_CellContentClick;
+            dgvClientes.SelectionChanged += dgvClientes_SelectionChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(878, 153);
+            label2.Name = "label2";
+            label2.Size = new Size(18, 15);
+            label2.TabIndex = 28;
+            label2.Text = "ID";
+            // 
+            // TxtID
+            // 
+            TxtID.Location = new Point(843, 171);
+            TxtID.Name = "TxtID";
+            TxtID.Size = new Size(100, 23);
+            TxtID.TabIndex = 29;
+            TxtID.TextChanged += TxtID_TextChanged;
             // 
             // Clientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1371, 611);
+            Controls.Add(TxtID);
+            Controls.Add(label2);
             Controls.Add(dgvClientes);
             Controls.Add(BtnMostrar);
             Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(label10);
-            Controls.Add(TxtID);
+            Controls.Add(TxtDireccionActualizar);
             Controls.Add(TxtNombreActualizar);
             Controls.Add(TxtTelefonoActualizar);
             Controls.Add(TxtCorreoActualizar);
@@ -333,12 +357,14 @@
         private TextBox TxtCorreoActualizar;
         private TextBox TxtTelefonoActualizar;
         private TextBox TxtNombreActualizar;
-        private TextBox TxtID;
+        private TextBox TxtDireccionActualizar;
         private Label label10;
         private Label label11;
         private Label label12;
         private Label label13;
         private Button BtnMostrar;
         private DataGridView dgvClientes;
+        private Label label2;
+        private TextBox TxtID;
     }
 }
