@@ -93,6 +93,7 @@
             BtnAñadir.TabIndex = 5;
             BtnAñadir.Text = "Añadir";
             BtnAñadir.UseVisualStyleBackColor = true;
+            BtnAñadir.Click += BtnAñadir_Click;
             // 
             // label1
             // 

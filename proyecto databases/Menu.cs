@@ -14,27 +14,35 @@ namespace proyecto_databases
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            IsMdiContainer = true;
             Productos Productos = new Productos();
-            Productos.ShowDialog();
+            Productos.MdiParent = this;
+            Productos.Show();
 
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            IsMdiContainer=true;
             Clientes clientes = new Clientes();
-            clientes.ShowDialog();
+            clientes.MdiParent = this;
+            clientes.Show();
         }
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            IsMdiContainer = true;
             Proveedores proveedores = new Proveedores();
-            proveedores.ShowDialog();
+            proveedores.MdiParent = this;
+            proveedores.Show();
         }
 
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            IsMdiContainer = true;
             Categorias categorias = new Categorias();
-            categorias.ShowDialog();
+            categorias.MdiParent = this;
+            categorias.Show();
         }
     }
 }

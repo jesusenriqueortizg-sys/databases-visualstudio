@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
+using System.IO.Pipes;
 
 namespace proyecto_databases
 {
     public partial class Clientes : Form
     {
-        string connectionString = "Server=localhost;Database=tarea;Trusted_Connection=True;";
-        int idSeleccionado = 0;
+
         public Clientes()
         {
             InitializeComponent();
@@ -27,15 +28,29 @@ namespace proyecto_databases
         }
         private void CargarDatos()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "SELECT * FROM Clientes";
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgvClientes.DataSource = dt;
-            }
+
         }
 
+        private void BtnAñadir_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            cliente.NombreCompleto =TxtNombre.Text;
+            cliente.CorreoElectronico =TxtCorreo.Text;
+            cliente.direccion = TxtDireccion.Text;
+            cliente.Telefono = TxtTelefono.Text;
+
+            int result = clientesDAL.AgregarCliente(cliente);
+
+            if (result > 0)
+            {
+                MessageBox.Show("Exito al guardas");
+
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar");
+            }
+
+        }
     }
 }
