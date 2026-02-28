@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Identity.Client;
 
 namespace proyecto_databases
 {
@@ -15,6 +16,43 @@ namespace proyecto_databases
         public Categorias()
         {
             InitializeComponent();
+            CargarDatos();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Categoria categoria = new Categoria();
+            categoria.NombreCategoria = TxtCategoria.Text;
+
+
+            int result = CategoriaDAL.AgregarCategoria(categoria);
+
+            if (result > 0)
+            {
+                MessageBox.Show("Exito al guardar");
+
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar");
+            }
+
+
+
+        }
+        private void CargarDatos()
+        {
+            dataGridView1.DataSource = CategoriaDAL.PresentarRegistro();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Categoria categoria= new Categoria();
+            categoria.NombreCategoria = TxtCategoriaActualizar.Text;
+                .id = Convert.ToInt32(TxtID.Text);
+            int result = clientesDAL.ModificarCliente(cliente);
+            MessageBox.Show("Actualizado correctamente");
         }
     }
 }

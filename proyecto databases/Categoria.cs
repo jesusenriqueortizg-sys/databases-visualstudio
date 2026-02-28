@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace proyecto_databases
 {
-    internal class Categoria
+    public class Categoria
     {
+        public int id { get; set; }
+        public string NombreCategoria { get; set; }
+
+
+        public Categoria() { }
+
+
+        public Categoria(int id, string NombreCategoria)
+        {
+            this.id = id;
+            this.NombreCategoria = NombreCategoria;
+
+        }
     }
 }
