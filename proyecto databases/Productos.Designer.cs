@@ -62,12 +62,13 @@
             // 
             // button1
             // 
-            button1.Location = new Point(815, 242);
+            button1.Location = new Point(817, 242);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
             button1.Text = "Actualizar";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -77,6 +78,7 @@
             button2.TabIndex = 1;
             button2.Text = "Eliminar";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -96,6 +98,7 @@
             button4.TabIndex = 3;
             button4.Text = "Mostrar";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // label1
             // 
@@ -246,6 +249,7 @@
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(100, 23);
             textBox6.TabIndex = 21;
+            textBox6.TextChanged += textBox6_TextChanged;
             // 
             // textBox7
             // 
@@ -290,6 +294,7 @@
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(121, 23);
             comboBox2.TabIndex = 28;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // dataGridView1
             // 

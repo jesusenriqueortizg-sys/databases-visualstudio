@@ -37,7 +37,7 @@ namespace proyecto_databases
             {
                 MessageBox.Show("Error al guardar");
             }
-
+            CargarDatos();
 
 
         }
@@ -48,11 +48,31 @@ namespace proyecto_databases
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Categoria categoria= new Categoria();
+            Categoria categoria = new Categoria();
             categoria.NombreCategoria = TxtCategoriaActualizar.Text;
             categoria.id = Convert.ToInt32(TxtIDActualizar.Text);
             int result = CategoriaDAL.ModificarCategoria(categoria);
             MessageBox.Show("Actualizado correctamente");
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(Eliminar.Text);
+            int resultado = CategoriaDAL.EliminarCategoria(id);
+            if (resultado > 0)
+            {
+                MessageBox.Show("Eliminado con exito");
+            }
+            else
+            {
+                MessageBox.Show("error al eliminarse");
+            }
         }
     }
 }

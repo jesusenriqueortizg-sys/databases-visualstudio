@@ -60,7 +60,7 @@ namespace proyecto_databases
             }
             return result;
         }
-        public static int EliminarCliente(int id)
+        public static int EliminarProveedor(int id)
         {
             int retorna = 0;
 

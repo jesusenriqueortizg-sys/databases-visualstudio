@@ -50,7 +50,7 @@ namespace proyecto_databases
             int result = 0;
             using (SqlConnection conexion = BD_general.ObtenerConexion())
             {
-                string query = "UPDATE Categorias SET " + "Nombrecategoria='" + categoria.NombreCategoria + "', " + "WHERE ProveedorID=" + categoria.id;
+                string query = "UPDATE Categorias SET "+ "Nombrecategoria='" + categoria.NombreCategoria + "' "+ "WHERE CategoriaId=" + categoria.id;
                 SqlCommand comando = new SqlCommand(query, conexion);
 
                 result = comando.ExecuteNonQuery();
@@ -58,13 +58,13 @@ namespace proyecto_databases
             }
             return result;
         }
-        public static int EliminarCliente(int id)
+        public static int EliminarCategoria(int id)
         {
             int retorna = 0;
 
             using (SqlConnection conexion = BD_general.ObtenerConexion())
             {
-                string query = "delete from clientes where ProovedorID =" + id + " ";
+                string query = "delete from Categorias where ProovedorId =" + id + " ";
 
                 SqlCommand command = new SqlCommand(query, conexion);
                 retorna = command.ExecuteNonQuery();
