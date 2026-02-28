@@ -155,7 +155,7 @@
             // 
             IDbuscar.Location = new Point(520, 61);
             IDbuscar.Name = "IDbuscar";
-            IDbuscar.Size = new Size(100, 23);
+            IDbuscar.Size = new Size(109, 23);
             IDbuscar.TabIndex = 13;
             // 
             // label8
@@ -175,6 +175,7 @@
             BtnEliminar.TabIndex = 15;
             BtnEliminar.Text = "Eliminar";
             BtnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.Click += BtnEliminar_Click;
             // 
             // BtnActualizar
             // 
@@ -290,9 +291,9 @@
             // 
             // TxtID
             // 
-            TxtID.Location = new Point(843, 171);
+            TxtID.Location = new Point(832, 171);
             TxtID.Name = "TxtID";
-            TxtID.Size = new Size(100, 23);
+            TxtID.Size = new Size(126, 23);
             TxtID.TabIndex = 29;
             TxtID.TextChanged += TxtID_TextChanged;
             // 

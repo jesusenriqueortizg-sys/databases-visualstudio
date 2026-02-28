@@ -4,19 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
-using Microsoft.IdentityModel.Tokens;
 
 namespace proyecto_databases
 {
-    public class clientesDAL
+    public class ProveedoresDAL
     {
-        public static int AgregarCliente(Cliente cliente)
+        public static int AgregarProveedor(proveedor Proveedor)
         {
             int retorna = 0;
 
             using (SqlConnection conexion = BD_general.ObtenerConexion())
             {
-                string query = "insert into Clientes (NombreCompleto, CorreoElectronico, Telefono, Direccion) values('" + cliente.NombreCompleto + "','" + cliente.CorreoElectronico + "','" + cliente.Telefono + "','" + cliente.direccion + "')";
+                string query = "insert into Proveedores (NombreProveedor, CorreoElectronico, Telefono) values('" + Proveedor.NombreProveedor + "','" + Proveedor.CorreoElectronico + "','" + Proveedor.Telefono + "')";
 
                 SqlCommand command = new SqlCommand(query, conexion);
                 retorna = command.ExecuteNonQuery();
@@ -26,35 +25,34 @@ namespace proyecto_databases
 
         }
 
-        public static List<Cliente> PresentarRegistro()
+        public static List<proveedor> PresentarRegistro()
         {
-            List<Cliente> Lista = new List<Cliente>();
+            List<proveedor> Lista = new List<proveedor>();
             using (SqlConnection conexion = BD_general.ObtenerConexion())
             {
-                string query = "select *from clientes";
+                string query = "select *from Proveedores";
                 SqlCommand comando = new SqlCommand(query, conexion);
 
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    Cliente cliente = new Cliente();
-                    cliente.id = reader.GetInt32(0);
-                    cliente.NombreCompleto = reader.GetString(1);
-                    cliente.CorreoElectronico = reader.GetString(2);
-                    cliente.direccion = reader.GetString(3);
-                    cliente.Telefono = reader.GetString(4);
-                    Lista.Add(cliente);
+                    proveedor Proveedor = new proveedor();
+                    Proveedor.id = reader.GetInt32(0);
+                    Proveedor.NombreProveedor = reader.GetString(1);
+                    Proveedor.CorreoElectronico = reader.GetString(2);
+                    Proveedor.Telefono = reader.GetString(3);
+                    Lista.Add(Proveedor);
                 }
                 conexion.Close();
                 return Lista;
             }
         }
-        public static int ModificarCliente(Cliente cliente)
+        public static int ModificarProveedor(proveedor Proveedor)
         {
             int result = 0;
             using (SqlConnection conexion = BD_general.ObtenerConexion())
             {
-                string query = "UPDATE clientes SET " + "NombreCompleto='" + cliente.NombreCompleto + "', " + "telefono='" + cliente.Telefono + "', " + "CorreoElectronico='" + cliente.CorreoElectronico + "', " + "direccion='" + cliente.direccion + "' " + "WHERE clienteId=" + cliente.id;
+                string query = "UPDATE Proveedores SET " + "NombreProveedor='" + Proveedor.NombreProveedor + "', " + "telefono='" + Proveedor.Telefono + "', " + "CorreoElectronico='" + Proveedor.CorreoElectronico + "' " + "WHERE ProveedorID=" + Proveedor.id;
                 SqlCommand comando = new SqlCommand(query, conexion);
 
                 result = comando.ExecuteNonQuery();
@@ -68,7 +66,7 @@ namespace proyecto_databases
 
             using (SqlConnection conexion = BD_general.ObtenerConexion())
             {
-                string query = "delete from clientes where clienteId =" + id + " ";
+                string query = "delete from clientes where ProovedorID =" + id + " ";
 
                 SqlCommand command = new SqlCommand(query, conexion);
                 retorna = command.ExecuteNonQuery();

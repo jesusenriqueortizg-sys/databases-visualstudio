@@ -82,9 +82,24 @@ namespace proyecto_databases
             cliente.CorreoElectronico = TxtCorreoActualizar.Text;
             cliente.direccion = TxtDireccionActualizar.Text;
             cliente.Telefono = TxtTelefonoActualizar.Text;
-            cliente.id=TxtId;
+            cliente.id = Convert.ToInt32(TxtID.Text);
             int result = clientesDAL.ModificarCliente(cliente);
+            MessageBox.Show("Actualizado correctamente");
 
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(TxtID.Text);
+            int resultado = clientesDAL.EliminarCliente(id);
+            if (resultado > 0)
+            {
+                MessageBox.Show("Eliminado con exito");
+            }
+            else
+            {
+                MessageBox.Show("error al eliminarse");
+            }
         }
     }
 }
