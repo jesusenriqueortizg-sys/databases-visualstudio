@@ -50,8 +50,8 @@ namespace proyecto_databases
         {
             Categoria categoria= new Categoria();
             categoria.NombreCategoria = TxtCategoriaActualizar.Text;
-                .id = Convert.ToInt32(TxtID.Text);
-            int result = clientesDAL.ModificarCliente(cliente);
+            categoria.id = Convert.ToInt32(TxtIDActualizar.Text);
+            int result = CategoriaDAL.ModificarCategoria(categoria);
             MessageBox.Show("Actualizado correctamente");
         }
     }
