@@ -115,9 +115,9 @@ namespace proyecto_databases
             producto.nombre = textBox6.Text;
             producto.descripcion = textBox10.Text;
             producto.Precio = Convert.ToDecimal(textBox5.Text);
-            producto.Stock = Convert.ToInt32(textBox6.Text);
-            producto.id = Convert.ToInt32(textBox11.Text);
-            producto.categoriaID=Convert.ToInt32(comboBox2.Text):
+            producto.Stock = Convert.ToInt32(textBox11.Text);
+            producto.id = Convert.ToInt32(textBox8.Text);
+            producto.categoriaID = Convert.ToInt32(comboBox2.Text);
             int result = ProductosDAl.ModificarProductos(producto);
             MessageBox.Show("Actualizado correctamente");
 
